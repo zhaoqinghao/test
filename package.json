@@ -1,0 +1,59 @@
+{
+  "name": "motest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "dev": "NODE_ENV=development webpack --config webpack.config.js --mode=development -w",
+    "build": "NODE_ENV=production webpack --config webpack.config.js --mode=production",
+    "test": "npm run lint && nyc ava",
+    "test:watch": "ava --watch",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhaoqinghao/test.git"
+  },
+  "author": "motest",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhaoqinghao/test/issues"
+  },
+  "homepage": "https://github.com/zhaoqinghao/test#readme",
+  "devDependencies": {
+    "ava": "^1.4.1",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.5",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-friendly-formatter": "^4.0.1",
+    "eslint-loader": "^2.1.2",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
+    "nyc": "^13.3.0",
+    "uglifyjs-webpack-plugin": "^2.1.2",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  },
+  "ava": {
+    "files": [
+      "test/test.js"
+    ],
+    "verbose": true,
+    "babel": false,
+    "require": [
+      "babel-core/register"
+    ]
+  },
+  "nyc": {
+    "exclude": [
+      "test/*.js"
+    ]
+  }
+}
